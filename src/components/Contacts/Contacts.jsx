@@ -1,6 +1,6 @@
 import { List, ListItem, Text, Btn } from './Contacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts, deleteFetchedContact } from 'redux/operations'; 
+import { fetchContacts, deleteFetchedContact } from 'redux/operationsFetchContacts'; 
 import { useEffect } from 'react';
 import { selectVisibleContacts } from 'redux/selectors';
 
