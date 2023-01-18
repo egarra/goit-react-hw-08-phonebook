@@ -1,11 +1,11 @@
 import { List, ListItem, Text, Btn } from './Contacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts, deleteFetchedContact } from 'redux/operationsFetchContacts'; 
+import { fetchContacts, deleteFetchedContact } from 'redux/operations'; 
 import { useEffect } from 'react';
 import { selectVisibleContacts } from 'redux/selectors';
 
 
-export const Contacts = () => {
+export const ContactsList = () => {
   const contacts = useSelector(selectVisibleContacts);
   const dispatch = useDispatch()
 

@@ -1,11 +1,21 @@
 import { Section } from './Section/Section';
 import { Form } from './Form/Form';
-import { Contacts } from './Contacts/Contacts';
+import { Contacts } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Loader } from './Loader/Loader';
 import { Route, Routes } from 'react-router-dom';
+import { useAuth } from 'hooks/useAuth';
+import { useEffect, lazy} from 'react';
+import { refreshUser } from 'redux/operations';
+import { Layout } from './Layout';
+import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
+const HomePage = lazy(() => import('../pages/Home/Home'));
+const RegisterPage = lazy(() => import('../pages/Register/Register'));
+const LoginPage = lazy(() => import('../pages/Login/Login'));
+const ContactsPage = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
 
@@ -37,7 +47,7 @@ export const App = () => {
         <Route
           path="/tasks"
           element={
-            <PrivateRoute redirectTo="/login" component={<TasksPage />} />
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
       </Route>

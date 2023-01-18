@@ -1,16 +1,67 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://goit-task-manager.herokuapp.com/';
+import axios from 'axios';
+
+const instanceFetchContacts = axios.create({
+  baseURL: 'https://63c581aae1292e5bea24f4b6.mockapi.io'
+})
+
+const instanceFetchUser = axios.create({
+  baseURL: 'https://connections-api.herokuapp.com'
+})
+
+export const fetchContacts = createAsyncThunk(
+    'contacts/fetchContacts',
+    async function(_, { rejectWithValue }) {
+      try {
+        const response = await instanceFetchContacts.get(`/contacts`)
+  
+        return response.data;
+      } catch (error) {
+        return rejectWithValue(error.message)
+      }
+    }
+  )
+  
+  export const deleteFetchedContact = createAsyncThunk(
+    'contacts/deleteFetchedContact',
+    async function(id, {rejectWithValue}) {
+      try {
+        const response = await instanceFetchContacts.delete(`/contacts/${id}`)
+        return response.data
+      } catch (error) {
+        return rejectWithValue(error.message)
+      }
+    }
+  )
+  
+  export const addFetchedContact = createAsyncThunk(
+    'contacts/addFetchedContact',
+    async function(contact, {rejectWithValue}) {
+     try {
+      
+      const response = await instanceFetchContacts.post(`/contacts`, {
+        ...contact
+      })
+     
+      return response.data
+    }catch (error) {
+      return rejectWithValue(error.message)
+     }
+    }
+  )
+
+
+  //////////User operations
 
 // Utility to add JWT
 const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  instanceFetchUser.headers.common.Authorization = `Bearer ${token}`;
 };
 
 // Utility to remove JWT
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = '';
+  instanceFetchUser.headers.common.Authorization = '';
 };
 
 /*
@@ -21,7 +72,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/signup', credentials);
+      const res = await instanceFetchUser.post('/users/signup', credentials);
       // After successful registration, add the token to the HTTP header
       setAuthHeader(res.data.token);
       return res.data;
@@ -39,7 +90,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('/users/login', credentials);
+      const res = await instanceFetchUser.post('/users/login', credentials);
       // After successful login, add the token to the HTTP header
       setAuthHeader(res.data.token);
       return res.data;
@@ -55,7 +106,7 @@ export const logIn = createAsyncThunk(
  */
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/users/logout');
+    await instanceFetchUser.post('/users/logout');
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
@@ -82,7 +133,7 @@ export const refreshUser = createAsyncThunk(
     try {
       // If there is a token, add it to the HTTP header and perform the request
       setAuthHeader(persistedToken);
-      const res = await axios.get('/users/me');
+      const res = await instanceFetchUser.get('/users/me');
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

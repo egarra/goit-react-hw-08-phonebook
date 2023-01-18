@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchContacts, deleteFetchedContact, addFetchedContact } from './operationsFetchContacts';
+import { fetchContacts, deleteFetchedContact, addFetchedContact } from './operations';
 
 const setError = (state, {payload}) => {
   state.status = 'rejected';
@@ -18,26 +18,28 @@ const contactsSlice = createSlice({
     status: null,
     error: null,
   },
-  extraReducers: {
-    [fetchContacts.pending]: setPending,
-    [deleteFetchedContact.pending]: setPending,
-    [addFetchedContact.pending]: setPending,
-
-    [fetchContacts.fulfilled]: (state, {payload}) => {
+  extraReducers: (builder) => {
+    //pending
+    builder.addCase(fetchContacts.pending, setPending),
+    builder.addCase(deleteFetchedContact.pending, setPending),
+    builder.addCase(addFetchedContact.pending, setPending),
+    //fullfilled
+    builder.addCase(fetchContacts.fulfilled, (state, {payload}) => {
       state.status = 'resolved';
       state.contacts = payload;
-    },
-    [addFetchedContact.fulfilled]: (state, {payload}) => {
+    }),
+    builder.addCase(addFetchedContact.fulfilled, (state, {payload}) => {
       state.status = 'resolved';
       state.contacts.push(payload);
-    },
-    [deleteFetchedContact.fulfilled](state, {payload}) {
+    }),
+    builder.addCase(deleteFetchedContact.fulfilled, (state, {payload}) => {
       state.status = 'resolved';
       state.contacts = state.contacts.filter(contact => contact.id !== payload.id);
-    },
-    [fetchContacts.rejected]: setError,
-    [deleteFetchedContact.rejected]: setError,
-    [addFetchedContact.rejected]: setError,
+    }),
+    //rejected
+    builder.addCase(fetchContacts.rejected, setError),
+    builder.addCase(deleteFetchedContact.rejected, setError),
+    builder.addCase(addFetchedContact.rejected, setError)
   }
 });
 export const { addContact, deleteContact } = contactsSlice.actions;
