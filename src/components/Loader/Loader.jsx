@@ -10,7 +10,7 @@ export const Loader = () => {
               height="120"
               width="120"
               radius="48"
-              color="rgb(27 180 139)"
+              color="white"
               ariaLabel="watch-loading"
               wrapperStyle={{}}
               wrapperClassName=""

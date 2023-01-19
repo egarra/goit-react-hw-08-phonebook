@@ -10,7 +10,7 @@ import { Filter } from 'components/Filter/Filter';
 
 export default function Tasks() {
   const dispatch = useDispatch();
-  const {status} = useSelector(selectStatus)
+  const {status} = useSelector(state => state.contacts)
 
   useEffect(() => {
     dispatch(fetchContacts());
