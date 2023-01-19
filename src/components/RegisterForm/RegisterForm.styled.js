@@ -9,7 +9,7 @@ export const Form = styled.form`
 `
 
 export const Input = styled.input`
-    padding: 10px 20px;
+    padding: 10px 50px;
     border-radius: 5px;
 
     transition-property: scale;
@@ -47,4 +47,8 @@ export const Btn = styled.button`
         background: black;
         color: white;
     }
+`
+export const Text = styled.p`
+    color: white;
+    font-size: 9px;
 `

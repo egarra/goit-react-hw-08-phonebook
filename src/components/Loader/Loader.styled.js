@@ -7,7 +7,7 @@ export const Preloader = styled.div`
     z-index: 1000;
 `
 export const PreloaderLoader = styled.div`
-      position: absolute;
+      position: fixed;
       top: -80px;
     left: 40px;
 `

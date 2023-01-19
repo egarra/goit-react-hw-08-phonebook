@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    
+`
+
 export const List = styled.ul `
     display: flex;
     flex-direction: column;
@@ -10,8 +16,7 @@ export const List = styled.ul `
     margin-top: 20px;
     align-items: center;
     margin: 0 auto;
-    background: radial-gradient(black, rgba(0, 0, 0, 0.8));
-    /* background-color: rgba(0, 0, 0, 0.8) */
+    /* background: radial-gradient(black, rgba(0, 0, 0, 0.8)); */
 `
 
 export const ListItem = styled.li `

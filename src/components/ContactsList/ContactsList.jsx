@@ -1,4 +1,4 @@
-import { List, ListItem, Text, Btn } from './Contacts.styled';
+import { List, ListItem, Text, Btn, Container } from './Contacts.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts, deleteFetchedContact } from 'redux/operations'; 
 import { useEffect } from 'react';
@@ -14,7 +14,8 @@ export const ContactsList = () => {
   }, [dispatch])
   
   return (
-    <List>
+    <Container>
+      <List>
       {contacts.map(({ id, name, number }) => {
         return (
           <ListItem key={id}>
@@ -30,5 +31,6 @@ export const ContactsList = () => {
         );
       })}
     </List>
+    </Container>
   );
 };

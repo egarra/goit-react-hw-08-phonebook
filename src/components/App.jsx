@@ -24,7 +24,7 @@ export const App = () => {
   return isRefreshing ? (
     <b>Refreshing user...</b>
   ) : (
-    <Routes>
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
@@ -47,5 +47,6 @@ export const App = () => {
         />
       </Route>
     </Routes>
+    
   );
 };
