@@ -55,3 +55,8 @@ export const Btn = styled.button`
 export const Text = styled.p`
     color: white;
 `
+
+export const Title = styled.h2`
+    color: white;
+    text-align: center;
+`

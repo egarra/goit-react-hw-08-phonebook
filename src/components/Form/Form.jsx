@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FormInput, Input, Text, Btn } from './Form.styled';
+import { FormInput, Input, Text, Btn, Title } from './Form.styled';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFetchedContact } from 'redux/operations'; 
@@ -40,6 +40,7 @@ export const Form = () => {
 
     return (
       <SectionTag>
+        <Title>Add your contact in form below</Title>
         <FormInput onSubmit={onFormSubmit}>
         <Text>Name</Text>
         <Input

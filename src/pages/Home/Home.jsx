@@ -1,8 +1,11 @@
 import { Container, Text } from './Home.styled';
-import { useAuth } from '../../hooks/useAuth';
+import { selectIsLoggedIn, selectUser } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
-  const { isLoggedIn, user } = useAuth();
+  const user = useSelector(selectUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+
   return (
     <Container>
       {isLoggedIn ? (
