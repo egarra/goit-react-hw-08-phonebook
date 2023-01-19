@@ -32,7 +32,7 @@ export const Label = styled.label`
 `
 
 export const Btn = styled.button`
-    padding: 10px 80px;
+    padding: 10px 105px;
     border: 2px solid white;
     border-radius: 5px;
     margin-top: 20px;

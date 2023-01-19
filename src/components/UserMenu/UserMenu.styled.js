@@ -9,10 +9,11 @@ export const Div = styled.div`
 `
 
 export const Btn = styled.button`
-    padding: 10px 20px;
+    padding: 5px 20px;
     border: 2px solid white;
     border-radius: 5px;
     font-family: "SF Pro Display", sans-serif;
+    font-size: 20px;
 
     transition-property: color, background;
     transition-duration: 250ms;
