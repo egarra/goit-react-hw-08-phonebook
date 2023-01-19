@@ -1,5 +1,5 @@
 import { Container, Text } from './Home.styled';
-import { useAuth } from '../../hooks/useAuth';;
+import { useAuth } from '../../hooks/useAuth';
 
 export default function Home() {
   const { isLoggedIn, user } = useAuth();
