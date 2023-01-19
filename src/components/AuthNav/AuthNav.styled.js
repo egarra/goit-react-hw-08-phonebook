@@ -8,16 +8,20 @@ export const NavigationLink = styled(NavLink)`
     font-size: 20px;
     text-decoration: none;
 
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
     &.active {
         color: rgba(0,0,0,0.8);
-        background: white;
+        background-color: white;
         border-radius: 5px;
         padding: 5px 20px;
     }
     :hover:not(.active),
     :focus-visible:not(.active) {
-        color: rgba(0,0,0,0.8);
-        background: white;
+        color: rgba(0,0,0,1);
+        background-color: white;
     }
 `
 export const NavWrapper = styled.div`

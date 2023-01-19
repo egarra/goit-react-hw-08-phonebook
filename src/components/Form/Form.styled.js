@@ -8,6 +8,7 @@ export const InputForm = styled.form`
     flex-direction: column;
     gap: 20px;
     border-radius: 5px;
+    margin: 0 auto;
 ` 
 
 export const Btn = styled.button `

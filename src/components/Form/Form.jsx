@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFetchedContact } from 'redux/operations'; 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { SectionTag } from 'components/Section/Section.styled';
 
 export const Form = () => {
   const [name, setName] = useState('')
@@ -38,7 +39,8 @@ export const Form = () => {
   }
 
     return (
-      <InputForm onSubmit={onFormSubmit}>
+      <SectionTag>
+        <InputForm onSubmit={onFormSubmit}>
         <p>Name</p>
         <InputField
           placeholder="name"
@@ -61,5 +63,6 @@ export const Form = () => {
         />
         <Btn type="submit">Add contact</Btn>
       </InputForm>
+      </SectionTag>
     );
   }

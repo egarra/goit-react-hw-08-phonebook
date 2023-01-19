@@ -1,10 +1,12 @@
 @import-normalize; /* bring in normalize.css styles */
 
 body {
+  background-image: url('../pngwing.com.png');
+  background-position: 50% 550px;
+  background-repeat: no-repeat;
+  background-color: rgba(0,0,0,1);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica",sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

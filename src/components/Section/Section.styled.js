@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SectionTag = styled.section`
   
-  margin-left: 200px;
+  padding: 50px 100px;
 `;
 
 export const Title = styled.h2`

@@ -5,10 +5,11 @@ import { ContactsList } from 'components/ContactsList/ContactsList';
 import { fetchContacts } from 'redux/operations';
 import { selectStatus } from 'redux/selectors';
 import { Loader } from 'components/Loader/Loader';
+import { Form } from 'components/Form/Form';
 
 export default function Tasks() {
   const dispatch = useDispatch();
-  const {status} = useSelector(selectStatus)
+  /* const {status} = useSelector(selectStatus) */
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -17,9 +18,10 @@ export default function Tasks() {
   return (
     <>
       <Helmet>
-        <title>Your tasks</title>
+        <title color='white'>Your contacts</title>
       </Helmet>
-      {status === 'loading' && <Loader/>}
+      {/* {status === 'loading' && <Loader/>} */}
+      <Form/>
       <ContactsList />
     </>
   );
