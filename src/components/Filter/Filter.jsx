@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { InputField } from './Filter.styled';
+import { InputField, Text } from './Filter.styled';
 import { filterContact } from 'redux/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch()
   return (
     <>
-      <p>Find contacts by name</p>
+      <Text>Find contacts by name</Text>
       <InputField
         placeholder="Type contact"
         type="text"

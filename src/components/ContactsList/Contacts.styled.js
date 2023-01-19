@@ -3,37 +3,44 @@ import styled from 'styled-components';
 export const List = styled.ul `
     display: flex;
     flex-direction: column;
-    width: 300px;
     gap: 20px;
-    border: 2px solid teal; 
     border-radius: 5px;
     padding: 20px;
     list-style: none;
     margin-top: 20px;
     align-items: center;
+    margin: 0 auto;
+    background: radial-gradient(black, rgba(0, 0, 0, 0.8));
+    /* background-color: rgba(0, 0, 0, 0.8) */
 `
 
 export const ListItem = styled.li `
-    width: 150px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     gap: 5px;
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
 `
 
 export const Text = styled.p `
-    font-size: 20px;
+    font-size: 16px;
 `
-export const Btn = styled.button `
-    padding: 10px;
+export const Btn = styled.button`
+    padding: 10px 20px;
+    border: 2px solid white;
     border-radius: 5px;
-    background: grey;
-    border: 1px solid grey;
-    color: white;
+    margin-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
 
-    &:hover {
-        background: teal;
-        border: 1px solid teal;
-        border-radius: 5px;
+    transition-property: color, background;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    :hover {
+        cursor: pointer;
+        background: black;
         color: white;
     }
 `

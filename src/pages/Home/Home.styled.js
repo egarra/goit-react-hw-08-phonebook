@@ -5,4 +5,5 @@ export const Container = styled.div`
     padding: 20px;
     padding-top: 100px;
     color: white;
+    font-family: 'Ubuntu', sans-serif;
 `

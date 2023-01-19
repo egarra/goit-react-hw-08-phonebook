@@ -1,31 +1,57 @@
 import styled from 'styled-components';
 
-export const InputForm = styled.form`
-    border: 2px solid teal;
-    padding: 20px;
-    width: 300px;
+export const FormInput = styled.form`
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    border-radius: 5px;
-    margin: 0 auto;
-` 
+    gap: 10px;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid white;
+`
 
-export const Btn = styled.button `
-    padding: 10px;
+export const Input = styled.input`
+    padding: 10px 20px;
     border-radius: 5px;
-    background: grey;
-    border: 1px solid grey;
+
+    transition-property: scale;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    :hover,
+    :focus {
+        /* border: 5px solid white; */
+        outline: none;
+        scale: 1.1;
+    }
+
+`
+export const Label = styled.label`
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
     color: white;
+`
 
-    &:hover {
-        background: teal;
-        border: 1px solid teal;
-        border-radius: 5px;
+export const Btn = styled.button`
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
+
+    transition-property: color, background;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    :hover {
+        cursor: pointer;
+        background: black;
         color: white;
     }
 `
 
-export const InputField = styled.input `
-    padding: 5px;
+export const Text = styled.p`
+    color: white;
 `

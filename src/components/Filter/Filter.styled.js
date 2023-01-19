@@ -1,14 +1,27 @@
 import styled from 'styled-components';
 
 export const InputField = styled.input `
-    padding: 5px;
+display: block ;
+    padding: 10px 20px;
     width: 324px;
-    border: 5px solid teal;
-    border-radius: 1px;
-    margin-top: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
 
-    &:focus {
-        border: 5px solid blue;
+
+ transition-property: scale;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    :hover,
+    :focus {
         outline: none;
+        scale: 1.1;
     }
+`
+export const Text = styled.p`
+    color: white;
+    text-align: center;
 `

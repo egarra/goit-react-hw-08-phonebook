@@ -36,6 +36,7 @@ export const Btn = styled.button`
     border: 2px solid white;
     border-radius: 5px;
     margin-top: 20px;
+    font-family: 'Ubuntu', sans-serif;
 
     transition-property: color, background;
     transition-duration: 250ms;

@@ -20,10 +20,10 @@ export const LoginForm = () => {
   return (
     <Form onSubmit={handleSubmit} autoComplete="off">
       <Label>Email
-        <Input type="email" name="email" placeholder='stepanbandera@gmail.com'/>
+        <Input type="email" name="email" placeholder='stepanbandera@gmail.com' required/>
       </Label>
       <Label>Password
-        <Input type="password" name="password" placeholder='password'/>
+        <Input type="password" name="password" placeholder='password' pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,24}$" required/>
       </Label>
       <Btn type="submit">Log In</Btn>
     </Form>
