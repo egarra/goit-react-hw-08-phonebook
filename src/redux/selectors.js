@@ -19,3 +19,5 @@ export const selectVisibleContacts = state => {
   
     return contacts.filter(contact => contact.name.toLowerCase().includes(filtered.toLowerCase()))
   };
+
+  
