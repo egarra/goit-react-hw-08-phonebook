@@ -7,7 +7,7 @@ export const Navigation = () => {
   console.log(isLoggedIn)
   return (
     <nav>
-      <NavigationLink to="/">
+      <NavigationLink to="/" end>
         Home
       </NavigationLink>
       {isLoggedIn && (

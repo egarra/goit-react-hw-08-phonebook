@@ -9,15 +9,19 @@ export const RegisterForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
+    const password = form.elements.password.value;
+    if( password.length < 8 ) {
+     return Notify.failure('Password should consist of at least 8 letter, with 1 up letter.');
+    }
 
-    if( form.elements.password.value.length < 8) {
-     return Notify.failure('Password should consist at least 8 letter, with 1 up letter.');
+    if (!isNaN(password)) {
+      return Notify.failure("Password shouldn't consist only numbers. Should be at least 1 up letter.");
     }
     dispatch(
       register({
         name: form.elements.name.value,
         email: form.elements.email.value,
-        password: form.elements.password.value,
+        password,
       })
     );
     form.reset();
