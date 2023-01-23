@@ -1,18 +1,13 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ContactsList } from 'components/ContactsList/ContactsList';
-import { fetchContacts } from 'redux/operations';
 import { Loader } from 'components/Loader/Loader';
 import { Form } from 'components/Form/Form';
 import { Filter } from 'components/Filter/Filter';
+import { selectStatus } from 'redux/selectors';
 
-export default function Tasks() {
-  const dispatch = useDispatch();
-  const {status} = useSelector(state => state.contacts)
+export default function Contacts() {
+  const status = useSelector(selectStatus);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
   return (
     <>
       {status === 'loading' && <Loader/>}
